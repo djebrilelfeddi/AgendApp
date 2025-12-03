@@ -1,6 +1,6 @@
-# AgendaApp
+# AgendApp
 
-AgendaApp is a C++20 console application for managing an agenda of events. The program is built around a finite state machine that drives an interactive terminal workflow for creating, updating, browsing, and exporting agendas. Persistence is handled through plain text files stored in the user profile, and the agenda can be exported to standalone HTML for distribution.
+AgendApp is a C++20 console application for managing an agenda of events. The program is built around a finite state machine that drives an interactive terminal workflow for creating, updating, browsing, and exporting agendas. Persistence is handled through plain text files stored in the user profile, and the agenda can be exported to standalone HTML for distribution.
 
 ## Why it matters
 
