@@ -1,3 +1,29 @@
+<div align="center">
+
+<!-- Logo -->
+<img src="https://iili.io/fIKdqTG.png" alt="AgendApp Logo" width="800"/>
+
+<br/>
+
+### *Manage your events with a powerful state machine*
+
+<br/>
+
+[![C++](https://img.shields.io/badge/C++-20-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://isocpp.org/)
+[![CMake](https://img.shields.io/badge/CMake-3.10+-064F8C?style=for-the-badge&logo=cmake&logoColor=white)](https://cmake.org/)
+[![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](/)
+[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](/)
+
+<br/>
+
+[Features](#feature-set) · [Architecture](#architecture-overview) · [Build](#build-instructions) · [Usage](#running-the-application)
+
+---
+
+</div>
+
+<br/>
+
 # AgendApp
 
 AgendApp is a C++20 console application for managing an agenda of events. The program is built around a finite state machine that drives an interactive terminal workflow for creating, updating, browsing, and exporting agendas. Persistence is handled through plain text files stored in the user profile, and the agenda can be exported to standalone HTML for distribution.
