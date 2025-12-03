@@ -1,0 +1,51 @@
+#!/usr/bin/expect
+
+# Convert Windows path to Unix-like path
+set app_path [exec cygpath -u "C:/Users/nepte/Documents/v10/bin/AgendaApp.exe"]
+
+# Start the application
+spawn $app_path
+
+# Wait for the main menu
+expect {
+    "=== Main Menu ===" {
+        # Select the option to add an event
+        expect {
+            "[1] Add Event" { send "1\r" }
+        }
+    }
+}
+
+# Wait for the prompt for the event title and send "testtitle"
+expect "Event title:"
+send "testtitle\r"
+
+# Wait for the prompt for the description and send "testdescription"
+expect "Description (Write a line with only '.' to end):"
+send "testdescription\r"
+
+# End the description input
+expect "."
+send ".\r"
+
+# Wait for the prompt for the begin date and send a valid date
+expect "Begin date:"
+send "2023-10-01 10:00\r"
+
+# Wait for the prompt for the end date and send a valid date
+expect "End date:"
+send "2023-10-01 12:00\r"
+
+# Wait for the confirmation prompt and confirm the details
+expect "Is this correct? (Y for yes, N for no):"
+send "Y\r"
+
+# Wait for the transition message indicating the event was added
+expect "Event 'testtitle' added"
+
+# Wait for the main menu again
+expect "=== Main Menu ==="
+
+# Exit the application
+send "7\r"
+expect eof

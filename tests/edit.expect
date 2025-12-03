@@ -1,0 +1,42 @@
+#!/usr/bin/expect
+
+# Lancer l'application avec l'argument "bob"
+spawn ./AgendaApp.exe bob
+
+# Attendre le menu principal
+expect {
+    "=== Main Menu ===" {
+        expect {
+            "[1] Edit Agenda" { send "1\r" }
+        }
+    }
+}
+
+# Attendre le prompt pour le titre de l'événement et envoyer "testtitle"
+expect "Enter title:"
+send "testtitle\r"
+
+# Attendre le prompt pour la description de l'événement et envoyer "testdescription"
+expect "Enter description:"
+send "testdescription\r"
+
+# Terminer l'entrée avec "."
+expect "Enter '.' to finish:"
+send ".\r"
+
+# Attendre la confirmation de la mise à jour de l'agenda
+expect {
+    "Agenda updated." {
+        expect {
+            "=== Main Menu ===" {
+                expect {
+                    "[1] Edit Agenda"
+                }
+            }
+        }
+    }
+}
+
+# Terminer le script
+send "7\r"
+expect eof
