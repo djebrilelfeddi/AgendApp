@@ -2,12 +2,13 @@
 
 AgendApp is a C++20 console application for managing an agenda of events. The program is built around a finite state machine that drives an interactive terminal workflow for creating, updating, browsing, and exporting agendas. Persistence is handled through plain text files stored in the user profile, and the agenda can be exported to standalone HTML for distribution.
 
-## Why it matters
+## Screenshot
 
-- Demonstrates a modular architecture in modern ISO C++ (C++20) without external dependencies.
-- Encapsulates domain rules (agenda properties, event lifecycle, scheduling constraints) behind a well-defined controller layer.
-- Uses a state machine to isolate user interaction flows, keeping business logic independent from UI code.
-- Provides deterministic filesystem access through a resource manager that normalises paths across Windows and Unix-like systems.
+<div align="center">
+<img src="screenshots/menu.png" alt="Main Menu" width="500"/>
+
+*Interactive main menu interface*
+</div>
 
 ## Feature set
 
@@ -18,6 +19,16 @@ AgendApp is a C++20 console application for managing an agenda of events. The pr
 - User safeguards: warn before quitting with unsaved changes and offer inline save options.
 
 ## Architecture overview
+
+### State Machine
+
+<div align="center">
+<img src="docs/statemachine.png" alt="State Machine Diagram" width="700"/>
+
+*Finite state machine driving the application workflow*
+</div>
+
+<br/>
 
 - `StateMachine` namespace (`include/statemachine`, `src/statemachine`): Implements the finite state machine, with each menu or action represented by its own state object. Transitions are explicit, and messages are passed between states through the machine interface.
 - `Agenda` namespace (`include/Agenda`, `src/Agenda`): Aggregates agenda properties and the event list. The `Controller` orchestrates persistence, domain validation, and exposes a façade for the UI layer.
